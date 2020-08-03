@@ -1,0 +1,16 @@
+table{
+    text-align: center;
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
+    display: table;
+    border-spacing: 10px;
+    width: 300px;
+    table-layout: fixed;
+}
+th{
+    background-color: darkgrey;
+}
+td{
+    background-color: salmon;
+}
