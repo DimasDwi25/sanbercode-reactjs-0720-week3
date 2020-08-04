@@ -5,7 +5,7 @@ table{
     text-align: center;
     display: table;
     border-spacing: 10px;
-    width: 300px;
+    width: 500px;
     table-layout: fixed;
 }
 th{
