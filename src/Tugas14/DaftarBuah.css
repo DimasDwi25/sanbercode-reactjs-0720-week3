@@ -1,0 +1,21 @@
+table{
+    text-align: center;
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
+    display: table;
+    border-spacing: 10px;
+    width: 500px;
+    table-layout: fixed;
+    border: solid;
+}
+th{
+    border: solid;
+    background-color: darkgrey;
+    
+}
+td{
+    border: solid;
+    background-color: coral;
+    
+}

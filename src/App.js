@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ListDataBuah from './Tugas13/DaftarBuah'
 import Timer from './Tugas13/timer'
-import Lists from './Tugas13/list'
+import Lists from './Tugas14/hooks'
 
 
 
@@ -13,7 +13,6 @@ function App() {
       {/*<TabelDaftarBuah />
       <Timer />*/}
       {/*<ListDataBuah />*/}
-      <Timer />
       <Lists />
 
     </div>

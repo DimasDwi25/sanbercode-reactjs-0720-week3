@@ -31,12 +31,10 @@ class Lists extends React.Component{
              berat: 500
          }
      ],
-     input:{
-         nama:"",
-         harga:"",
-         berat:""
-     },
-    indexOfForm:-1    
+     inputName:"",
+     inputHarga:"",
+     inputBerat:"",
+     indexOfForm:-1    
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -46,13 +44,11 @@ class Lists extends React.Component{
   }
   handleEdit(event) {
       let index = event.target.value
-      let buah = this.state.dataBuah[index]
+      let dataBuah = this.state.dataBuah[index]
       this.setState({
-        input:{
-          nama: buah.nama,
-          harga: buah.harga,
-          berat: buah.berat
-        },
+        inputName: dataBuah.nama,
+        inputHarga: dataBuah.harga,
+        inputBerat: dataBuah.berat,
         indexOfForm: index
       })
   }
@@ -72,35 +68,51 @@ class Lists extends React.Component{
   }
 
   handleChange(event){
-    let input = {...this.state.input}
-    input[event.target.name] = event.target.value
-    this.setState({
-        input
-    })
+   let typedOfInput = event.target.name
+   switch (typedOfInput) {
+     case "nama":
+       {
+         this.setState({inputName: event.target.value})
+         break
+       }
+       case "harga":
+         {
+          this.setState({inputHarga: event.target.value})
+          break
+         }
+         case "berat":
+           {
+             this.setState({inputBerat: event.target.value})
+             break
+           }
+   
+     default:
+       break;
+   }
   }
 
   handleSubmit(event){
     event.preventDefault()
 
-    let input = this.state.input
-    if(input['nama'].replace(/\s/g, '') !== "" && input['harga'].toString().replace(/\s/g,'') !== "" && input['berat'].toString().replace(/\s/g,'')!== "") {
-        let newDaftarBuah = this.state.dataBuah
-        let index = this.state.indexOfForm
-        console.log(index)
-        if (index === -1) {
-            newDaftarBuah = [...newDaftarBuah, input]
-        } else {
-            newDaftarBuah[index] = input
-        }
-        this.setState({
-            dataBuah: newDaftarBuah,
-            input: {
-                nama: "",
-                harga: "",
-                berat: "",
-            },
-            indexOfForm: -1
-        })
+    let nama = this.state.inputName
+    let harga = this.state.inputHarga
+    let berat = this.state.inputBerat
+
+    if(nama.replace(/\s/g, '')!== "" && harga.replace(/\s/g,'')!== "") {
+      let newDaftarBuah = this.state.dataBuah
+      let index = this.state.indexOfForm
+
+      if(index === -1){
+        newDaftarBuah = [...newDaftarBuah,{nama,harga,berat}]
+      } else {
+        newDaftarBuah[index] = {nama,harga,berat}
+      }
+      this.setState({
+        dataBuah: newDaftarBuah,
+        inputName: "",
+        inputHarga: "",
+        inputBerat: 0
+      })
     }
   }
 
@@ -141,11 +153,11 @@ class Lists extends React.Component{
         <h1>Form Data Buah</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Masukkan Nama Buah :  </label>       
-          <input type="text" name="nama" value={this.state.input.nama} onChange={this.handleChange} /><br></br>
+          <input type="text" name="nama" value={this.state.inputName} onChange={this.handleChange} /><br></br>
           <label>Masukkan Harga Buah : </label>
-          <input type="text" name="harga" value={this.state.input.harga}onChange={this.handleChange} /><br></br>
+          <input type="text" name="harga" value={this.state.inputHarga}onChange={this.handleChange} /><br></br>
           <label>Masukkan Berat Buah :  </label>
-          <input type="text" name="berat" value={this.state.input.berat} onChange={this.handleChange} /><br></br>
+          <input type="text" name="berat" value={this.state.inputBerat} onChange={this.handleChange} /><br></br>
           <button>submit</button>
         </form>
       </>
