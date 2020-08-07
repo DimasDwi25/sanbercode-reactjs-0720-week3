@@ -129,16 +129,16 @@ const Lists = () => {
         </thead>
         <tbody>
           {
-            DataBuah !== null && DataBuah.map((value, index) => {
+            DataBuah !== null && DataBuah.map((item, index) => {
               return (
                 <tr key='value'>
                   <td>{index + 1}</td>
-                  <td>{value.name}</td>
-                  <td> {value.price} </td>
-                  <td> {value.weight / 1000} Kg </td>
+                  <td>{item.name}</td>
+                  <td> {item.price} </td>
+                  <td> {item.weight / 1000} Kg </td>
                   <td>
-                    <button onClick={handleEdit} value={value.id}>Edit</button>
-                    <button onClick={handleDelete} value={value.id}>Hapus</button>
+                    <button onClick={handleEdit} value={item.id}>Edit</button>
+                    <button onClick={handleDelete} value={item.id}>Hapus</button>
                   </td>
                 </tr>
               )
