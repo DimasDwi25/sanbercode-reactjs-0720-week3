@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 
-const SimpleHooks = () => {
+const Lists = () => {
   const [DataBuah, setDataBuah] = useState(null)
   const [InputName, setInputName] = useState("")
   const [InputHarga, setInputHarga] = useState("")
@@ -162,4 +162,4 @@ const SimpleHooks = () => {
   )
 }
 
-export default SimpleHooks
+export default Lists
